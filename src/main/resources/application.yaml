@@ -1,11 +1,11 @@
 server:
-  port: 8084
+  port: 8086
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/your_database_name
-    username: your_username
-    password: your_password
+    url: jdbc:postgresql://localhost:5433/devprofileproject
+    username: postgres
+    password: medo1407
     driver-class-name: org.postgresql.Driver
 
   jpa:
