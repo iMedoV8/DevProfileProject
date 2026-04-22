@@ -16,7 +16,7 @@ Maven
 
 2- Clone the repository
 
-git clone https://github.com/YOUR_ORG/DevProfileProject.git
+git clone https://github.com/iMedoV8/DevProfileProject.git
 
 cd DevProfileProject
 
