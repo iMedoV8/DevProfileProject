@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.secuirty;
+package com.devprofileproject.devprofileaast.Secuirty;
 
 import org.springframework.security.core.userdetails.UserDetails;
 

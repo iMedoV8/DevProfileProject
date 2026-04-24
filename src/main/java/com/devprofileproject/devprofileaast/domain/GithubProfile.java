@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "github_profiles")
-public class GithubProfile {
+public class GitHubProfile {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class GithubProfile {
 
     @OneToOne
     @JoinColumn(name="session_id")
-    private analysisSession session;
+    private AnalysisSession session;
     // mapedBy 3lshan elada2 bta3 el app mygbsh list el snapshot gher lma eluser ytlobha
     @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
     private List<GitHubRepositorySnapshot> snapshots;
