@@ -5,7 +5,7 @@ package com.devprofileproject.devprofileaast.domain;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-import com.devprofileproject.devprofileaast.domain.repository.EnumUser.Role;
+import com.devprofileproject.devprofileaast.domain.EnumUser.Role;
 
 @Entity
 @Table(name ="users")

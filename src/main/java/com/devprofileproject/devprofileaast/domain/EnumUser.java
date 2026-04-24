@@ -1,6 +1,4 @@
-package com.devprofileproject.devprofileaast.domain.repository;
-
-import com.devprofileproject.devprofileaast.domain.User;
+package com.devprofileproject.devprofileaast.domain;
 
 public class EnumUser {
     //Da aashan el User may2darsh haga ghalat (ex: usre) 
