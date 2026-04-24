@@ -2,7 +2,7 @@ package com.devprofileproject.devprofileaast.domain;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.devprofilebackend.devprofileback.domain.GitHubProfile;
+import com.devprofileproject.devprofileaast.domain.GitHubProfile;
 
 
 public interface GitHubProfileRepository extends JpaRepository<GitHubProfile, Long> {

@@ -1,4 +1,4 @@
-package com.devprofilebackend.devprofileback.exception;
+package com.devprofileproject.devprofileaast.exception;
 
 public enum GitHubErrorType {
     USER_NOT_FOUND,
