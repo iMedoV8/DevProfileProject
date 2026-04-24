@@ -84,5 +84,5 @@ public class GitHubProfile {
     public List<GitHubRepositorySnapshot> getSnapshots() {
         return snapshots;
     }
-    //ya ekhwaty elerrors 3lshan class el analysisSession lsa mkhlsh w bardo GitHubRepositorySnapshot
+    //ya ekhwaty el 8 errors 3lshan class el analysisSession lsa mkhlsh w bardo GitHubRepositorySnapshot
 }

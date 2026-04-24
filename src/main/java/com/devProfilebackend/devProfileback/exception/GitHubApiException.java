@@ -1,4 +1,4 @@
-package com.devProfilebackend.devProfileback.exception;
+package com.devprofilebackend.devprofileback.exception;
 
 //class bygeeb el error bzbt mn github
 public class GitHubApiException extends RuntimeException {
