@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.Secuirty;
+package com.devprofileproject.devprofileaast.security;
 
 import java.util.Collection;
 import java.util.List;
