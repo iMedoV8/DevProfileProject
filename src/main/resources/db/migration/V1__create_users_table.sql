@@ -7,6 +7,8 @@ CREATE TABLE users (
     role VARCHAR(20) NOT NULL DEFAULT 'USER'
 );
 
+ALTER TABLE analysis_sessions ALTER COLUMN workflow_step DROP NOT NULL;
+
 CREATE TABLE github_profiles (
     id BIGSERIAL PRIMARY KEY,
     username VARCHAR(255),
@@ -21,3 +23,16 @@ CREATE TABLE github_profiles (
         FOREIGN KEY (session_id) REFERENCES analysis_sessions(id) ON DELETE CASCADE,
     CONSTRAINT uq_github_profile_session UNIQUE (session_id)
 );
+
+CREATE TABLE github_repository_snapshots (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    description TEXT,
+    primary_language VARCHAR(100),
+    stars INTEGER,
+    last_updated TIMESTAMPTZ,
+    github_profile_id BIGINT NOT NULL,
+    CONSTRAINT fk_snapshot_github_profile
+        FOREIGN KEY (github_profile_id) REFERENCES github_profiles(id) ON DELETE CASCADE
+);
+
