@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.Secuirty;
+package com.devprofileproject.devprofileaast.secuirty;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import org.springframework.stereotype.Service;
 
-import com.devprofileproject.devprofileaast.repository.UserRepository;
+import com.devprofileproject.devprofileaast.domain.repository.UserRepository;
 
 @Service //bet3ml create lel class automatic w bet3mlo manage
 public class CustomUserDetailsService implements UserDetailsService {

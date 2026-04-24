@@ -1,11 +1,11 @@
 // hena User aady wel Entity bat3raf el User lel spring boot
 
-package com.devprofileproject.devprofileaast;
+package com.devprofileproject.devprofileaast.domain;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-import com.devprofileproject.devprofileaast.repository.EnumUser.Role;
+import com.devprofileproject.devprofileaast.domain.repository.EnumUser.Role;
 
 @Entity
 @Table(name ="users")

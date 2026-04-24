@@ -1,9 +1,9 @@
-package com.devprofileproject.devprofileaast.repository;
+package com.devprofileproject.devprofileaast.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.devprofileproject.devprofileaast.User;
+import com.devprofileproject.devprofileaast.domain.User;
 
 import java.util.Optional;
 import java.util.List;
