@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.Secuirty;
+package com.devprofileproject.devprofileaast.secuirty;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
