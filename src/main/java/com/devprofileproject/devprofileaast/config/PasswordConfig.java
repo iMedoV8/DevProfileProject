@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.security.config;
+package com.devprofileproject.devprofileaast.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

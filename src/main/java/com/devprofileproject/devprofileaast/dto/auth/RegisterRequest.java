@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.auth;
+package com.devprofileproject.devprofileaast.dto.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

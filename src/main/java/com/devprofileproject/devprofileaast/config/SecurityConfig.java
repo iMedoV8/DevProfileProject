@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.security.config;
+package com.devprofileproject.devprofileaast.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
