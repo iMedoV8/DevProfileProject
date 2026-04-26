@@ -17,7 +17,7 @@ public class User {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String emai;
+    private String email;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -30,20 +30,22 @@ public class User {
 
     private LocalDateTime createdAt;
 
-    private Long getId() {
+    private boolean enabled;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getEmai() {
-        return emai;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmai(String emai) {
-        this.emai = emai;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUsername() {
@@ -58,7 +60,7 @@ public class User {
         return password;
     }
 
-    public void setPasswordHash(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -77,5 +79,16 @@ public class User {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+    
+
+    
 
 }

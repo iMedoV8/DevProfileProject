@@ -20,7 +20,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String Username);
     //Bet3ml Query lewahda "select * from User where Username = ?"
 
-    Optional<User>  findByEmai(String emai);
+    Optional<User>  findByEmail(String email);
 
     boolean existsByUsername (String username);
 
