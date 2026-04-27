@@ -1,4 +1,5 @@
 package com.devprofileproject.devprofileaast.domain;
+
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -16,40 +17,41 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "github_profiles")
 public class GitHubProfile {
-    
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     private String username;
     private int totalRepos;
     private int totalStars;
     private int contributionsLastYear;
 
     @OneToOne
-    @JoinColumn(name="session_id")
+    @JoinColumn(name = "session_id")
     private AnalysisSession session;
-    // mapedBy 3lshan elada2 bta3 el app mygbsh list el snapshot gher lma eluser ytlobha
+    // mapedBy 3lshan elada2 bta3 el app mygbsh list el snapshot gher lma eluser
+    // ytlobha
     @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
     private List<GitHubRepositorySnapshot> snapshots;
 
-    public long getId(){
+    public long getId() {
         return id;
     }
 
-    public void setId(long id){
-        this.id=id;
-    }
-    
-    public void setUsername(String username){
-        this.username=username;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getUsername(){
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
         return username;
     }
 
-    public int getTotalRepos(){
+    public int getTotalRepos() {
         return totalRepos;
     }
 
@@ -73,16 +75,18 @@ public class GitHubProfile {
         this.contributionsLastYear = contributionsLastYear;
     }
 
-     public AnalysisSession getSession() {
+    public AnalysisSession getSession() {
         return session;
     }
 
     public void setSession(AnalysisSession session) {
         this.session = session;
     }
-// btrg3 list feha swar el projects 3la github
+
+    // btrg3 list feha swar el projects 3la github
     public List<GitHubRepositorySnapshot> getSnapshots() {
         return snapshots;
     }
-    //ya ekhwaty el 8 errors 3lshan class el analysisSession lsa mkhlsh w bardo GitHubRepositorySnapshot
+    // ya ekhwaty el 8 errors 3lshan class el analysisSession lsa mkhlsh w bardo
+    // GitHubRepositorySnapshot
 }
