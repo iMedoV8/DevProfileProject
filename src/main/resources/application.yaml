@@ -24,3 +24,9 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+
+openai:
+  api:
+    key: ${OPENAI_API_KEY:ollama}
+    model: ${OPENAI_MODEL:qwen3:8b}
+    base-url: http://localhost:11434/v1 
