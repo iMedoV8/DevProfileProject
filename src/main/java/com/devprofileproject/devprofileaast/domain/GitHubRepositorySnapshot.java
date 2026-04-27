@@ -1,8 +1,6 @@
-package com.devprofileproject.devprofileaast.domain.repository;
+package com.devprofileproject.devprofileaast.domain;
 
 import java.time.Instant;
-
-import com.devprofileproject.devprofileaast.domain.GitHubProfile;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+//repo hna msh bta3t el db repo hna as github project 
 @Entity
 @Table(name = "github_repository_snapshots")
 public class GitHubRepositorySnapshot {
@@ -26,7 +25,7 @@ public class GitHubRepositorySnapshot {
     private int stars;
     private Instant lastUpdated;
 
-    // one user can havo more than on repo
+    // one user can have more than one repo
     @ManyToOne
     @JoinColumn(name = "github_profile_id")
     private GitHubProfile profile;
