@@ -1,6 +1,4 @@
-package com.devprofileproject.devprofileaast.service;
-
-
+package com.devprofileproject.devprofileaast.Service;
 
 import com.devprofileproject.devprofileaast.domain.repository.UserRepository;
 import com.devprofileproject.devprofileaast.dto.auth.LoginRequest;
@@ -39,17 +37,13 @@ public class AuthService {
         this.jwtService = jwtService;
     }
 
-
-    //Register
-    public void register(RegisterRequest request) 
-    {
-        if (userRepository.existsByUsername(request.getUsername())) 
-        {
+    // Register
+    public void register(RegisterRequest request) {
+        if (userRepository.existsByUsername(request.getUsername())) {
             throw new DuplicateResourceException("Username already taked");
         }
 
-        if (userRepository.existsByEmail(request.getEmail())) 
-        {
+        if (userRepository.existsByEmail(request.getEmail())) {
             throw new DuplicateResourceException("Email already registered");
         }
 
@@ -61,29 +55,27 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         userRepository.save(user);
-       
+
     }
 
-
-    //Login
-    public LoginResponse Login(LoginRequest request)
-    {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+    // Login
+    public LoginResponse Login(LoginRequest request) {
+        Authentication authentication = authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
-        //Generate JWT tokem
+        // Generate JWT tokem
         String token = jwtService.generateToken(userDetails);
 
-        //Load full user to get email and role
+        // Load full user to get email and role
         User user = userRepository.findByUsername(userDetails.getUsername())
-        .orElseThrow(() -> new RuntimeException("user not found"));
+                .orElseThrow(() -> new RuntimeException("user not found"));
 
-        return new LoginResponse(token, 
-            user.getUsername(),
-            user.getEmail(),
-            user.getRole().name()
-        );
+        return new LoginResponse(token,
+                user.getUsername(),
+                user.getEmail(),
+                user.getRole().name());
     }
 
 }

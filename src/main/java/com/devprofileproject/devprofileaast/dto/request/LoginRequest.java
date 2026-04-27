@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.dto.auth;
+package com.devprofileproject.devprofileaast.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 
@@ -26,6 +26,4 @@ public class LoginRequest {
         this.password = password;
     }
 
-    
-    
 }
