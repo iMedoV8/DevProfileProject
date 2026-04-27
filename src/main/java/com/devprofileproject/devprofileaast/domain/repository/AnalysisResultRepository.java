@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.devprofilebackend.devprofileback.domain.AnalysisResult;
+import com.devprofileproject.devprofileaast.domain.AnalysisResult;
 
 public interface AnalysisResultRepository extends JpaRepository<AnalysisResult, Long> {
 
