@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.auth.service;
+package com.devprofileproject.devprofileaast.service;
 
 
 
