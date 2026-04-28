@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.auth.service;
+package com.devprofileproject.devprofileaast.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devprofileproject.devprofileaast.dto.auth.LoginRequest;
 import com.devprofileproject.devprofileaast.dto.auth.LoginResponse;
 import com.devprofileproject.devprofileaast.dto.auth.RegisterRequest;
-import com.devprofileproject.devprofileaast.auth.service.AuthService;
+import com.devprofileproject.devprofileaast.service.AuthService;
 
 import jakarta.validation.Valid;
 
