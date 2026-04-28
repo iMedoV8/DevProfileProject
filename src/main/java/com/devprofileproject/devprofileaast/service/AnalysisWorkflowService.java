@@ -1,10 +1,11 @@
-package com.devprofileproject.devprofileaast.Service;
+package com.devprofileproject.devprofileaast.service;
 
 import org.springframework.stereotype.Service;
 
 import com.devprofileproject.devprofileaast.domain.repository.AnalysisSessionRepository;
 import com.devprofileproject.devprofileaast.domain.repository.GitHubProfileRepository;
 import com.devprofileproject.devprofileaast.domain.repository.GitHubRepositorySnapshotRepository;
+import com.devprofileproject.devprofileaast.integration.github.GitHubClientService;
 
 import jakarta.transaction.Transactional;
 

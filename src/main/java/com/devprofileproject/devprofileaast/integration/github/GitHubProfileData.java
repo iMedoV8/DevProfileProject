@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.dto.auth;
+package com.devprofileproject.devprofileaast.integration.github;
 
 import java.time.Instant;
 import java.util.List;

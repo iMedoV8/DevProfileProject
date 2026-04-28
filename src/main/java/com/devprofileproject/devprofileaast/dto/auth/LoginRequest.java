@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.dto.request;
+package com.devprofileproject.devprofileaast.dto.auth;
 
 import jakarta.validation.constraints.NotBlank;
 

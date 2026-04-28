@@ -1,4 +1,4 @@
-package com.devprofileproject.devprofileaast.Service;
+package com.devprofileproject.devprofileaast.service;
 
 import com.devprofileproject.devprofileaast.domain.repository.UserRepository;
 import com.devprofileproject.devprofileaast.dto.auth.LoginRequest;
