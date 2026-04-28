@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.devprofileproject.devprofileaast.dto.request.ConnectGitHubRequest;
 import com.devprofileproject.devprofileaast.dto.request.CreateSessionRequest;
 import com.devprofileproject.devprofileaast.dto.response.AnalysisSessionResponse;
+import com.devprofileproject.devprofileaast.dto.response.GitHubProfileResponse;
 import com.devprofileproject.devprofileaast.security.CustomUserDetails;
 import com.devprofileproject.devprofileaast.service.AnalysisSessionService;
+import com.devprofileproject.devprofileaast.service.AnalysisWorkflowService;
 
 import jakarta.validation.Valid;
 
@@ -25,8 +28,11 @@ public class AnalysisSessionController {
 
     private final AnalysisSessionService sessionService;
 
-    public AnalysisSessionController(AnalysisSessionService sessionService) {
+    private final AnalysisWorkflowService workflowService;
+
+    public AnalysisSessionController(AnalysisSessionService sessionService,AnalysisWorkflowService workflowService) {
         this.sessionService = sessionService;
+        this.workflowService=workflowService;
     }
 
     @PostMapping
@@ -58,4 +64,26 @@ public class AnalysisSessionController {
         sessionService.startSession(id, userDetails.getUser().getId());
         return ResponseEntity.ok().build();
     }
+
+    
+
+    //xx
+
+    @PostMapping("/{id}/github")
+public ResponseEntity<GitHubProfileResponse> connectGitHub(
+        @PathVariable Long id,
+        @AuthenticationPrincipal CustomUserDetails userDetails,
+        @Valid @RequestBody ConnectGitHubRequest request) {
+    return ResponseEntity.ok(workflowService.connectGitHub(
+            id, userDetails.getUser().getId(), request.getUsername()));
+}
+
+// Get session's GitHub profile
+@GetMapping("/{id}/github")
+public ResponseEntity<GitHubProfileResponse> getGitHubProfile(
+        @PathVariable Long id,
+        @AuthenticationPrincipal CustomUserDetails userDetails) {
+    return ResponseEntity.ok(workflowService.getGitHubProfile(
+            id, userDetails.getUser().getId()));
+}
 }
