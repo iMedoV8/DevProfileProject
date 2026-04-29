@@ -42,4 +42,14 @@ public interface AnalysisSessionRepository extends JpaRepository<AnalysisSession
 
     // Find latest session
     Optional<AnalysisSession> findFirstByUserIdAndArchivedFalseOrderByCreatedAtDesc(Long userId);
+
+    // Find all completed sessions ordered by newest first
+    List<AnalysisSession> findByUserIdAndStatusAndArchivedFalseOrderByCreatedAtDesc(
+    Long userId, SessionStatus status);
+
+    // Count completed sessions
+    long countByUserIdAndStatusAndArchivedFalse(Long userId, SessionStatus status);
+
+    // Count all non-archived sessions
+    long countByUserIdAndArchivedFalse(Long userId);
 }
