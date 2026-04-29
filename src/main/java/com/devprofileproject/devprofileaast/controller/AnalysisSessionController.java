@@ -16,6 +16,7 @@ import com.devprofileproject.devprofileaast.dto.request.ConnectGitHubRequest;
 import com.devprofileproject.devprofileaast.dto.request.CreateSessionRequest;
 import com.devprofileproject.devprofileaast.dto.response.AnalysisSessionResponse;
 import com.devprofileproject.devprofileaast.dto.response.GitHubProfileResponse;
+import com.devprofileproject.devprofileaast.dto.response.RoadmapResponse;
 import com.devprofileproject.devprofileaast.security.CustomUserDetails;
 import com.devprofileproject.devprofileaast.service.AnalysisSessionService;
 import com.devprofileproject.devprofileaast.service.AnalysisWorkflowService;
