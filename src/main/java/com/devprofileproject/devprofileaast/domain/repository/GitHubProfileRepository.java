@@ -6,8 +6,9 @@ import com.devprofileproject.devprofileaast.domain.GitHubProfile;
 
 public interface GitHubProfileRepository extends JpaRepository<GitHubProfile, Long> {
     // optional 3lshan yhmek mn el crash lw sessionId b null
-    Optional<GitHubProfile> findBySession_ID(long id);
+    Optional<GitHubProfile> findBySessionId(long id);
 
     boolean existsBySessionId(Long sessionId);
+
 
 }

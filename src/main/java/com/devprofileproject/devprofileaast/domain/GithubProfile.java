@@ -23,9 +23,9 @@ public class GitHubProfile {
     private long id;
 
     private String username;
-    private int totalRepos;
-    private int totalStars;
-    private int contributionsLastYear;
+    private Integer totalRepos;
+    private Integer totalStars;
+    private Integer contributionsLastYear;
 
     @OneToOne
     @JoinColumn(name = "session_id")
@@ -51,27 +51,27 @@ public class GitHubProfile {
         return username;
     }
 
-    public int getTotalRepos() {
+    public Integer getTotalRepos() {
         return totalRepos;
     }
 
-    public void setTotalRepos(int totalRepos) {
+    public void setTotalRepos(Integer totalRepos) {
         this.totalRepos = totalRepos;
     }
 
-    public int getTotalStars() {
+    public Integer getTotalStars() {
         return totalStars;
     }
 
-    public void setTotalStars(int totalStars) {
+    public void setTotalStars(Integer totalStars) {
         this.totalStars = totalStars;
     }
 
-    public int getContributionsLastYear() {
+    public Integer getContributionsLastYear() {
         return contributionsLastYear;
     }
 
-    public void setContributionsLastYear(int contributionsLastYear) {
+    public void setContributionsLastYear(Integer contributionsLastYear) {
         this.contributionsLastYear = contributionsLastYear;
     }
 
