@@ -83,6 +83,13 @@
             <version>0.11.5</version>
             <scope>runtime</scope>
         </dependency>
+        
+        <!--read the cv as pdf-->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>3.0.4</version>
+        </dependency>
 
         <!-- DevTools -->
         <dependency>
