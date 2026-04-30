@@ -4,15 +4,18 @@ import java.time.Instant;
 
 import org.springframework.stereotype.Service;
 
+
 import com.devprofileproject.devprofileaast.domain.AnalysisSession;
 import com.devprofileproject.devprofileaast.domain.GitHubProfile;
 import com.devprofileproject.devprofileaast.domain.GitHubRepositorySnapshot;
+import com.devprofileproject.devprofileaast.domain.ResumeProfile;
 import com.devprofileproject.devprofileaast.domain.SessionStatus;
 import com.devprofileproject.devprofileaast.domain.WorkflowStep;
 import com.devprofileproject.devprofileaast.domain.repository.AnalysisSessionRepository;
 import com.devprofileproject.devprofileaast.domain.repository.GitHubProfileRepository;
 import com.devprofileproject.devprofileaast.domain.repository.GitHubRepositorySnapshotRepository;
 import com.devprofileproject.devprofileaast.dto.response.GitHubProfileResponse;
+import com.devprofileproject.devprofileaast.dto.response.GitHubRepositorySnapshotResponse;
 import com.devprofileproject.devprofileaast.domain.repository.ResumeProfileRepository;
 import com.devprofileproject.devprofileaast.dto.response.GitHubProfileResponse;
 import com.devprofileproject.devprofileaast.exception.BusinessRuleException;
