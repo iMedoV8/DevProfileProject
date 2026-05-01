@@ -1,5 +1,9 @@
 package com.devprofileproject.devprofileaast.config;
 
+
+import com.devprofileproject.devprofileaast.security.CustomUserDetailsService;
+import com.devprofileproject.devprofileaast.security.JwtAuthenticationFilter;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +20,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.devprofileproject.devprofileaast.security.CustomUserDetailsService;
-import com.devprofileproject.devprofileaast.security.JwtAuthenticationFilter;
 
 import java.util.List;
 
@@ -25,8 +27,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final DaoAuthenticationProvider daoAuthenticationProvider;
-    private final CorsConfigurationSource corsConfigurationSource;
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final CustomUserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
@@ -34,12 +34,14 @@ public class SecurityConfig {
     @Value("${cors.allowed-origins:http://localhost:3000}")
     private String allowedOrigins;
 
-    
-
-    // Allows frontend to talk to Backend
+    // =========================
+    // CORS CONFIGURATION
+    // =========================
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+
         CorsConfiguration config = new CorsConfiguration();
+
         config.setAllowedOrigins(List.of(allowedOrigins.split(",")));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept"));
@@ -48,37 +50,68 @@ public class SecurityConfig {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
+
         return source;
     }
 
-    //Bet2ol lel Spring ezay yetshek el password
+    // =========================
+    // AUTHENTICATION PROVIDER
+    // =========================
     @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider()
-    {
+    public DaoAuthenticationProvider authenticationProvider() {
+
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+
+        // tells Spring HOW to load users from DB
         provider.setUserDetailsService(userDetailsService);
+
+        // tells Spring HOW to verify password (BCrypt)
         provider.setPasswordEncoder(passwordEncoder);
+
         return provider;
     }
 
-    //El kawa3ed el asasya lel SECURITY
+    // =========================
+    // AUTHENTICATION MANAGER
+    // =========================
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
-    {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
+
+    // =========================
+    // SECURITY FILTER CHAIN
+    // =========================
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
         http
-        .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                // Enable CORS using our configuration bean
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
-        .csrf(csrf -> csrf.disable())
+                // disable csrf (because we use JWT, not cookies)
+                .csrf(csrf -> csrf.disable())
 
-        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                // make API stateless (VERY IMPORTANT for JWT)
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-        .authorizeHttpRequests(auth -> auth.requestMatchers("/api/auth/**").permitAll().requestMatchers("/error").permitAll().anyRequest().authenticated() )
+                // endpoint authorization rules
+                .authorizeHttpRequests(auth -> auth
 
-        .authenticationProvider(daoAuthenticationProvider())
+                        // PUBLIC endpoints
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/health/**").permitAll()
+                        .requestMatchers("/error").permitAll()
 
-        .addFilterBefore(jwtAuthFilter,UsernamePasswordAuthenticationFilter.class);
+                        // EVERYTHING ELSE requires token
+                        .anyRequest().authenticated())
+
+                // register our DB authentication provider
+                .authenticationProvider(authenticationProvider())
+
+                // add JWT filter BEFORE spring login filter
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
-
 }
