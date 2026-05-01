@@ -2,7 +2,12 @@ package com.devprofileproject.devprofileaast.service;
 
 import java.time.Instant;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+
 
 
 import com.devprofileproject.devprofileaast.domain.AnalysisSession;
@@ -16,16 +21,17 @@ import com.devprofileproject.devprofileaast.domain.repository.GitHubProfileRepos
 import com.devprofileproject.devprofileaast.domain.repository.GitHubRepositorySnapshotRepository;
 import com.devprofileproject.devprofileaast.dto.response.GitHubProfileResponse;
 import com.devprofileproject.devprofileaast.dto.response.GitHubRepositorySnapshotResponse;
+import com.devprofileproject.devprofileaast.dto.response.ResumeProfileResponse;
 import com.devprofileproject.devprofileaast.domain.repository.ResumeProfileRepository;
 import com.devprofileproject.devprofileaast.dto.response.GitHubProfileResponse;
 import com.devprofileproject.devprofileaast.exception.BusinessRuleException;
 import com.devprofileproject.devprofileaast.exception.DuplicateResourceException;
 import com.devprofileproject.devprofileaast.exception.ResourceNotFoundException;
-import com.devprofileproject.devprofileaast.domain.repository.ResumePdfParserService;
 import com.devprofileproject.devprofileaast.integration.github.GitHubClientService;
 import com.devprofileproject.devprofileaast.integration.github.GitHubProfileData;
+import com.devprofileproject.devprofileaast.integration.resume.ResumePdfParserService;
+import com.devprofileproject.devprofileaast.integration.resume.ResumeTextData;
 
-import jakarta.transaction.Transactional;
 
 @Service
 @Transactional

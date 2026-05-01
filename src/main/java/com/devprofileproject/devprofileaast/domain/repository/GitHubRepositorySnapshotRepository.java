@@ -12,7 +12,7 @@ import com.devprofileproject.devprofileaast.domain.GitHubRepositorySnapshot;
 @Repository
 public interface GitHubRepositorySnapshotRepository extends JpaRepository<GitHubRepositorySnapshot, Long> {
 
-    List<GitHubRepositorySnapshot> findByProfileIDOrderbyStarsDesc(Long profileId);
+    List<GitHubRepositorySnapshot> findByProfileIdOrderByStarsDesc(Long profileId);
 
     @Query("SELECT DISTINCT g.primaryLanguage FROM GitHubRepositorySnapshot g WHERE g.profile.id = :profileId AND g.primaryLanguage IS NOT NULL")
     List<String> findDistinctLanguagesByProfileId(@Param("profileId") Long profileId);
@@ -21,4 +21,5 @@ public interface GitHubRepositorySnapshotRepository extends JpaRepository<GitHub
 
     @Query("SELECT CASE WHEN COUNT(g) > 0 THEN true ELSE false END FROM GitHubRepositorySnapshot g WHERE g.profile.id = :profileId AND g.stars > 0")
     boolean existsByProfileIdAndStarsGreaterThanZero(@Param("profileId") Long profileId);
+
 }

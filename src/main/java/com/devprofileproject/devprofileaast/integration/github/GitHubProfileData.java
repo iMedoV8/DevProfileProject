@@ -6,16 +6,16 @@ import java.util.List;
 
 public record GitHubProfileData(
                 String username,
-                int totalRepos,
-                int totalStars,
-                int contributionsLastYear,
+                Integer totalRepos,
+                Integer totalStars,
+                Integer contributionsLastYear,
                 List<RepositoryData> topRepositories) {
 
         public record RepositoryData(
                         String name,
                         String description,
                         String primaryLanguage,
-                        int stars,
+                        Integer stars,
                         Instant lastUpdated) {
         }
 }

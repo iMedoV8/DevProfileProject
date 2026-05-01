@@ -27,6 +27,7 @@ import com.devprofileproject.devprofileaast.domain.repository.ResumeProfileRepos
 import com.devprofileproject.devprofileaast.domain.repository.RoadmapRepository;
 import com.devprofileproject.devprofileaast.dto.response.AnalysisStatusResponse;
 import com.devprofileproject.devprofileaast.dto.response.ReportResponse;
+import com.devprofileproject.devprofileaast.dto.response.RoadmapResponse;
 import com.devprofileproject.devprofileaast.dto.response.RoadmapWeekResponse;
 import com.devprofileproject.devprofileaast.dto.response.ScoreBreakdownResponse;
 import com.devprofileproject.devprofileaast.exception.BusinessRuleException;
@@ -36,6 +37,7 @@ import com.devprofileproject.devprofileaast.integration.openai.OpenAiAnalysisRes
 import com.devprofileproject.devprofileaast.integration.openai.OpenAiClientService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 
 @Service
@@ -362,4 +364,3 @@ public class AiAnalysisService {
         }
     }
 }
-

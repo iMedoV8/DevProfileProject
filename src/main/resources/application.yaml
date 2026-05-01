@@ -30,3 +30,6 @@ openai:
     key: ${OPENAI_API_KEY:ollama}
     model: ${OPENAI_MODEL:qwen3:8b}
     base-url: http://localhost:11434/v1 
+
+jwt:
+  secret: ${JWT_SECRET:ZGV2cHJvZmlsZS1zdXBlci1zZWNyZXQta2V5LWRldnByb2ZpbGU=}

@@ -6,10 +6,10 @@ public class GitHubRepositorySnapshotResponse {
     private String name;
     private String description;
     private String primaryLanguage;;
-    private int stars;
+    private Integer stars;
     private Instant lastUpdated;
 
-    public GitHubRepositorySnapshotResponse(String name, String description, String primaryLanguage, int stars,
+    public GitHubRepositorySnapshotResponse(String name, String description, String primaryLanguage, Integer stars,
             Instant lastUpdated) {
         this.name = name;
         this.description = description;
@@ -30,7 +30,7 @@ public class GitHubRepositorySnapshotResponse {
         return primaryLanguage;
     }
 
-    public int getStars() {
+    public Integer getStars() {
         return stars;
     }
 

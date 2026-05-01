@@ -1,14 +1,16 @@
 package com.devprofileproject.devprofileaast.dto.response;
 
+import java.time.Instant;
+
 public class ResumeProfileResponse {
     private String orginalFilename;
     private Long fileSize;
     private String extractedTextPreview;
-    private int extractedTextLength;
-    private int uploadedAt;
+    private Integer extractedTextLength;
+    private Instant uploadedAt;
 
     public ResumeProfileResponse(String orginalFilename, Long fileSize, String extractedTextPreview,
-            int extractedTextLength, int uploadedAt) {
+            Integer extractedTextLength, Instant uploadedAt) {
         this.orginalFilename = orginalFilename;
         this.fileSize = fileSize;
         this.extractedTextPreview = extractedTextPreview;
@@ -28,11 +30,11 @@ public class ResumeProfileResponse {
         return extractedTextPreview;
     }
 
-    public int getExtractedTextLength() {
+    public Integer getExtractedTextLength() {
         return extractedTextLength;
     }
 
-    public int getUploadedAt() {
+    public Instant getUploadedAt() {
         return uploadedAt;
     }
 
